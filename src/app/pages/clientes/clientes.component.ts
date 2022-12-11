@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from "src/app/interfaces/Cliente";
+import { ClientesService } from './../../services/clientes.service';
 
 @Component({
   selector: 'app-clientes',
@@ -9,7 +10,7 @@ import { Cliente } from "src/app/interfaces/Cliente";
 export class ClientesComponent implements OnInit {
   btnText = 'Cadastrar'
 
-  constructor() { }
+  constructor(private clientesService: ClientesService) { }
 
   ngOnInit(): void {
   }
@@ -33,7 +34,9 @@ export class ClientesComponent implements OnInit {
     }
 
     // TODO: enviar para a API
-    // TODO: exibir mensagem de sucesso ou erro
+
+    this.clientesService.criaCliente(formData).subscribe()
+
     // TODO: redirect
   }
 
