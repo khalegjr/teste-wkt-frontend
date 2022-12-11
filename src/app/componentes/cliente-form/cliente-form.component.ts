@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Cliente } from "src/app/interfaces/Cliente";
 
 @Component({
   selector: 'app-cliente-form',
@@ -7,7 +8,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
   styleUrls: ['./cliente-form.component.scss']
 })
 export class ClienteFormComponent implements OnInit {
-  @Output() onSubmit = new EventEmitter<any>()
+  @Output() onSubmit = new EventEmitter<Cliente>()
   @Input() btnText!: string
 
   clienteForm!: FormGroup
