@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./clientes.component.scss']
 })
 export class ClientesComponent implements OnInit {
+  btnText = 'Cadastrar'
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  createHandler(event:any): void {
+    console.warn('FOIII')
   }
 
 }
