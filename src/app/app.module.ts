@@ -10,6 +10,8 @@ import { HeaderComponent } from './layouts/header/header.component';
 import { ClientesComponent } from './pages/clientes/clientes.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProdutosComponent } from './pages/produtos/produtos.component';
+import { MessagesComponent } from './componentes/messages/messages.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -18,14 +20,16 @@ import { ProdutosComponent } from './pages/produtos/produtos.component';
     HomeComponent,
     ClientesComponent,
     ProdutosComponent,
-    ClienteFormComponent
+    ClienteFormComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
