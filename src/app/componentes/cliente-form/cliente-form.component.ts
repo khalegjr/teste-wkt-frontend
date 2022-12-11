@@ -83,7 +83,6 @@ export class ClienteFormComponent implements OnInit {
       return
     }
 
-    console.log(this.clienteForm.value)
     this.onSubmit.emit(this.clienteForm.value)
   }
 
