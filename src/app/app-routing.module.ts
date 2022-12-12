@@ -1,31 +1,55 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
 import { ClientesComponent } from "./pages/clientes/clientes/clientes.component";
-import { FormClienteComponent } from './pages/clientes/form-cliente/form-cliente.component';
-import { HomeComponent } from "./pages/home/home.component";
-import { ProdutosComponent } from './pages/produtos/produtos.component';
+import { DetalhesClienteComponent } from "./pages/clientes/detalhes-cliente/detalhes-cliente.component";
+import { FormClienteComponent } from "./pages/clientes/form-cliente/form-cliente.component";
+import { ProdutosComponent } from "./pages/produtos/produtos.component";
 
 const routes: Routes = [
   {
-    component: HomeComponent,
-    path: '',
+    path: "",
+    pathMatch: "full",
+    // title: "Página Inicial",
+    // component: HomeComponent,
+    redirectTo: "clientes",
   },
   {
-    component: ClientesComponent,
-    path: 'clientes',
+    path: "clientes",
+    pathMatch: "prefix",
+    children: [
+      {
+        path: "",
+        component: ClientesComponent,
+      },
+      {
+        path: ":id",
+        component: DetalhesClienteComponent,
+      },
+      {
+        path: "create",
+        component: FormClienteComponent,
+      },
+    ],
   },
+
   {
-    component: FormClienteComponent,
-    path: 'clientes/create',
+    path: "produtos",
+    pathMatch: "prefix",
+    children: [
+      {
+        path: "",
+        component: ProdutosComponent,
+      },
+      {
+        path: "create",
+        component: FormClienteComponent,
+      },
+    ],
   },
-  {
-    component: ProdutosComponent,
-    path: 'produtos'
-  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
