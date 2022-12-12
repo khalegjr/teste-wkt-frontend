@@ -2,6 +2,36 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Cliente } from "src/app/interfaces/Cliente";
 
+enum Estados {
+  'AC' = 'Acre',
+  'AL' = 'Alagoas',
+  'AP' = 'Amapá',
+  'AM' = 'Amazonas',
+  'BA' = 'Bahia',
+  'CE' = 'Ceará',
+  'DF' = 'Distrito Federal',
+  'ES' = 'Espírito Santo',
+  'GO' = 'Goiás',
+  'MA' = 'Maranhão',
+  'MT' = 'Mato Grosso',
+  'MS' = 'Mato Grosso do Sul',
+  'MG' = 'Minas Gerais',
+  'PA' = 'Pará',
+  'PB' = 'Paraíba',
+  'PR' = 'Paraná',
+  'PE' = 'Pernambuco',
+  'PI' = 'Piauí',
+  'RJ' = 'Rio de Janeiro',
+  'RN' = 'Rio Grande do Norte',
+  'RS' = 'Rio Grande do Sul',
+  'RO' = 'Rondônia',
+  'RR' = 'Roraima',
+  'SC' = 'Santa Catarina',
+  'SP' = 'São Paulo',
+  'SE' = 'Sergipe',
+  'TO' = 'Tocantins'
+}
+
 @Component({
   selector: 'app-cliente-form',
   templateUrl: './cliente-form.component.html',
@@ -10,6 +40,7 @@ import { Cliente } from "src/app/interfaces/Cliente";
 export class ClienteFormComponent implements OnInit {
   @Output() onSubmit = new EventEmitter<Cliente>()
   @Input() btnText!: string
+  lista_estados = Estados
 
   clienteForm!: FormGroup
 
