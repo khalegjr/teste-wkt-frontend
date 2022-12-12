@@ -1,21 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router } from "@angular/router";
 import { Cliente } from "src/app/interfaces/Cliente";
-import { ClientesService } from './../../services/clientes.service';
-import { MessagesService } from './../../services/messages.service';
+import { ClientesService } from "src/app/services/clientes.service";
+import { MessagesService } from "src/app/services/messages.service";
 
 @Component({
-  selector: 'app-clientes',
-  templateUrl: './clientes.component.html',
-  styleUrls: ['./clientes.component.scss']
+  selector: 'app-form-cliente',
+  templateUrl: './form-cliente.component.html',
+  styleUrls: ['./form-cliente.component.scss']
 })
-export class ClientesComponent implements OnInit {
+export class FormClienteComponent implements OnInit {
   btnText = 'Cadastrar'
 
   constructor(
     private clientesService: ClientesService,
     private messageService: MessagesService,
-    private router: Router) { }
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }

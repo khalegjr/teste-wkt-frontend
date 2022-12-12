@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { Cliente } from "src/app/interfaces/Cliente";
+import { Cliente } from "../../interfaces/Cliente";
 
 enum Estados {
   'AC' = 'Acre',
