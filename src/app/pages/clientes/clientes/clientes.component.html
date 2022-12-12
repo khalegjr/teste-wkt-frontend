@@ -1,5 +1,31 @@
-<h1>Página de Clientes</h1>
+<div class="container mx-auto">
+  <main *ngIf="clientes.length > 0; else semClientes">
+    <h2>Clientes cadastrados</h2>
 
+    <div class="row my-3">
+      <div>
+        <a [routerLink]="['/clientes/create']" routerLinkActive="/clientes/*"  class="btn btn-outline-success">Cadastrar Cliente</a>
+      </div>
+    </div>
+    <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-2 g-md-3 mx-0">
 
+      <div class="card p-0 col-md" *ngFor="let cliente of clientes" >
+        <div class="card-body">
+          <h5 class="card-title ">{{cliente.nome}}</h5>
+          <p class="card-text"><span class="">CPF:</span> {{cliente.cpf}}
+          </p>
+          <p class="card-text date"><span class="">Data de Nascimento:</span> {{ cliente.data_nascimento}}
+          </p>
+          <div class="hstack g-md-3 g-sm-1">
+            <a routerLink="/clientes/{{cliente.id}}" class="btn btn-primary">Detalhes/Editar</a>
+            <button onclick="removeHandler(cliente.id)" class="btn btn-outline-danger ms-auto">Apagar</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-
+  </main>
+  <ng-template #semClientes>
+    <h2>Sem Clientes Cadastrados</h2>
+  </ng-template>
+</div>
