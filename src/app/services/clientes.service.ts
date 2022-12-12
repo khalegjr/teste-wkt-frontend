@@ -18,6 +18,10 @@ export class ClientesService {
     return this.http.get<Response<Cliente[]>>(this.apiURL)
   }
 
+  getCliente(id: number): Observable<Response<Cliente>> {
+    return this.http.get<Response<Cliente>>(`${this.apiURL}/${id}`)
+  }
+
   criaCliente(formData: FormData): Observable<FormData> {
     return this.http.post<FormData>(this.apiURL, formData);
   }
