@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Cliente } from "src/app/interfaces/Cliente";
 import { ClientesService } from './../../services/clientes.service';
+import { MessagesService } from './../../services/messages.service';
 
 @Component({
   selector: 'app-clientes',
@@ -10,7 +12,10 @@ import { ClientesService } from './../../services/clientes.service';
 export class ClientesComponent implements OnInit {
   btnText = 'Cadastrar'
 
-  constructor(private clientesService: ClientesService) { }
+  constructor(
+    private clientesService: ClientesService,
+    private messageService: MessagesService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -33,11 +38,11 @@ export class ClientesComponent implements OnInit {
       formData.append("complemento", cliente.complemento)
     }
 
-    // TODO: enviar para a API
-
     this.clientesService.criaCliente(formData).subscribe()
 
-    // TODO: redirect
+    this.messageService.add('Cliente adicionado com sucesso')
+
+    this.router.navigate(['/'])
   }
 
 }

@@ -1,9 +1,12 @@
-<div class="message" *ngIf="messagesService.message">
-  <div class="message-header">
-    <h2>Mensagem do Sistema</h2>
-    <button class="clear">
-      <fa-icon [icon]="faTimes"></fa-icon>
-    </button>
+<div class="toast-container position-fixed top-0 end-0 p-3 alert-success">
+  <div class="toast text-bg-success" role="alert" *ngIf="messagesService.message" [ngClass]="{'show': messagesService.message !== ''}" >
+    <div class="toast-header">
+      <strong class="me-auto">Mensagem do Sistema</strong>
+      <button class="btn btn-close" (click)="messagesService.clear()" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+
+    <div class="toast-body">
+      <p>{{ messagesService.message }}</p>
+    </div>
   </div>
-  <p>{{ messagesService.message }}</p>
 </div>
