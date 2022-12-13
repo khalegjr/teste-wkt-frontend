@@ -22,12 +22,12 @@ const routes: Routes = [
         component: ClientesComponent,
       },
       {
-        path: ":id",
-        component: DetalhesClienteComponent,
-      },
-      {
         path: "create",
         component: FormClienteComponent,
+      },
+      {
+        path: ":id",
+        component: DetalhesClienteComponent,
       },
     ],
   },
