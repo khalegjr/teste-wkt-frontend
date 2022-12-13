@@ -22,8 +22,15 @@ export class ClientesComponent implements OnInit {
 
   ngOnInit(): void {
     this.clientesService.getClientes().subscribe((items) => {
-      this.clientes = items;
-      console.log(items);
+      this.clientes = items.body;
+
+      /* TODO: juntar todos os tratamentos de dados de response em uma classe.
+      talvez em um Interceptor */
+      this.clientes.map((item: any) => {
+        item.data_nascimento = new Date(
+          item.data_nascimento
+        ).toLocaleDateString("pt-BR");
+      });
     });
   }
 
