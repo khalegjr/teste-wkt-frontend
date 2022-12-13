@@ -1,0 +1,16 @@
+<div *ngIf="cliente; else semCliente">
+  <h3>Detalhes/Edição do Cliente {{ cliente.nome }}</h3>
+</div>
+
+<app-cliente-form [clienteData]="cliente" [btnText]="btnText"></app-cliente-form>
+
+<ng-template #semCliente>
+  <h2>Cliente Não Encontrado</h2>
+
+  <div class="row my-3">
+    <div>
+      <a [routerLink]="['/clientes/create']" routerLinkActive="/clientes/*" class="btn btn-outline-success">Cadastrar
+        Cliente</a>
+    </div>
+  </div>
+</ng-template>
