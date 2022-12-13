@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
 
+## Teste de Frontend para WK Technology
+Por falta de tempo só fiz parte da feature de clientes. A listagem de clientes, as páginas de criação e edição de clientes e método de deleção de cliente.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
