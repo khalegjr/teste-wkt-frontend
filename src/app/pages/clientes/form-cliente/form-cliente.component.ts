@@ -11,6 +11,7 @@ import { MessagesService } from "src/app/services/messages.service";
 })
 export class FormClienteComponent implements OnInit {
   btnText = "Cadastrar";
+  tituloForm = "Cadastrar Cliente";
 
   constructor(
     private clientesService: ClientesService,
